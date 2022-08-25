@@ -1,30 +1,31 @@
-import React from "react"
+import React from 'react'
 
-import C from './components/TestComponent/index.js'
-import CT from './components/TestComponentCounter/index.js'
-import CC from './components/TestComponentColor/index.js'
+import { useStore } from 'react-store'
 
-function App() {
+const CountDisplay = function () {
+  const [count, setCount] = useStore('count', 0)
+
+  const handlePress = function () {
+    setCount(count + 1)
+  }
+
+  return (
+    <div className="count-display-container">
+      <div>Count: { count }</div>
+      <button onClick={handlePress}>
+        Increment Count
+      </button>
+    </div>
+  )
+}
+
+function App () {
   return (
     <div className="App">
-      <C name='A'>
-        <C name='A1' />
-        <CT name='A2'>
-          <CC name='A2.1' />
-          <CT name='A2.2' />
-          <C name='A2.3' />
-          <CT name='A2.4'>
-            <C name='A2.4.1' />
-            <C name='A2.4.2'>
-              <CC name='A2.4.2.1' />
-              <C name='A2.4.2.2' />
-              <CT name='A2.4.2.2' />
-            </C>
-            <C name='A2.4.3' />
-          </CT>
-        </CT>
-        <CC name='A3' />
-      </C>
+      <div className="title">
+        Count is the state being shared across all components
+      </div>
+      <CountDisplay />
     </div>
   )
 }
