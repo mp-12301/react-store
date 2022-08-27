@@ -5,6 +5,9 @@ import Store from './store.js'
 const store = new Store()
 
 export const useStore = (key, defaultValue) => {
+  defaultValue = store.oldValues[key] !== undefined ?
+    store.oldValues[key] :
+    defaultValue
   const [stateValue, setStateValue] = useState(defaultValue)
 
   const handleSubscribe = useCallback((event) => {

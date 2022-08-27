@@ -1,7 +1,7 @@
 export default class Store {
   constructor () {
     this.handlers = []
-    this.lastValues = {}
+    this.oldValues = {}
   }
 
   subscribe (handler) {
@@ -17,13 +17,13 @@ export default class Store {
       }
     }
 
-    delete this.lastValues[handler.key]
+    delete this.oldValues[handler.key]
   }
 
   fire (event, thisScope) {
     const scope = thisScope || window
 
-    this.lastValues[event.key] = event.value
+    this.oldValues[event.key] = event.value
 
     for (let i = 0; i < this.handlers.length; i++) {
       this.handlers[i].fn.call(scope, event)
