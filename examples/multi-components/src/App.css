@@ -1,6 +1,5 @@
-.App {
+.app {
   display: flex;
-  height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -10,26 +9,32 @@
   padding-bottom: 16px;
 }
 
-.containers {
-  display: flex;
+.menu {
+  margin-bottom: 16px;
 }
 
-.count-display-container {
+.menu > button {
+  margin-left: 8px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
   border: 1px solid black;
-  padding: 8px;
 }
 
 .container {
-  padding: 20px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 1px solid black;
+  padding: 8px;
+  margin: 8px;
+  height: 50px;
+  width: 150px;
 }
 
-.container > .name {
-  background-color: white;
-  font-size: 24px;
-  padding: 4px;
-  cursor: pointer;
+.text-container {
+  border: 1px solid black;
+  padding: 8px;
+  margin: 8px;
+  width: 500px;
 }
-
